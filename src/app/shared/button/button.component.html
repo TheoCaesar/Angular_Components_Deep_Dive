@@ -1,0 +1,14 @@
+<button>
+  <span>
+    {{btnProps().txt}}
+  </span>
+  @if(btnProps().icon){
+    <span class="icon">
+      {{btnProps().icon}}
+    </span>
+  } @else  {
+    <span class="icon">
+      →
+    </span>
+  }
+</button>
