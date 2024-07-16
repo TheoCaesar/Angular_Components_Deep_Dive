@@ -8,5 +8,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './button.component.css'
 })
 export class ButtonComponent {
-  btnProps = input.required<{txt:string, icon ?:""}>()
+  // btnProps = input.required<{txt:string, icon ?:""}>()
 }
