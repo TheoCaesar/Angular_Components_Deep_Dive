@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -13,11 +13,10 @@ import { Component, HostBinding, HostListener, input, ViewEncapsulation } from '
   }
 })
 export class ControlComponent {
-  // @HostBinding('class') className = 'control';
-  // @HostListener('click') onClick() { console.log('Clicked...')  }
   label = input.required<string>();
+  private hostElement = inject(ElementRef); //get metadata on this.component
   doSomething() {
-    console.log('clicked...')
+    console.log('clicked...',this.hostElement);
   }
 
 }
