@@ -2,15 +2,9 @@
   <div [class] = "{
       status: true,
       'status-online': currentStatus === 'online',
-      'stauts-offline': currentStatus === 'offline',
-      'stauts-unkonwn': currentStatus === 'unkonwn'
-    }"
-    [style.fontSize]="'64px'"
-    [style]="{
-      'font-size':'64px',
-      fontColor: 'red'
-    }"
-    >
+      'status-offline': currentStatus === 'offline',
+      'status-unkonwn': currentStatus === 'unknown'
+    }">
     @if (currentStatus === 'online') {
       <p>Servers are online</p>
       <p>All systems are operational.</p>

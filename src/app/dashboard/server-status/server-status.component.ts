@@ -12,5 +12,15 @@ import { ButtonComponent } from '../../shared/button/button.component';
   }
 })
 export class ServerStatusComponent {
-  currentStatus = 'online';
+  // Limit possible string values to assign to props
+  currentStatus : 'online' | 'offline' | 'unknown' = 'online';
+
+  constructor() {
+    setInterval(()=> {
+      let random = Math.random(); // 0- 0.999
+      if (random < 0.5) this.currentStatus = "offline"
+      else if (random < 0.9) this.currentStatus = "online"
+      else this.currentStatus = "unknown"
+    }, 5000)
+  }
 }
