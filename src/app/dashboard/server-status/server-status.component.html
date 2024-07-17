@@ -1,5 +1,10 @@
 <!-- <article> -->
-  <div [class.status] = "currentStatus === 'online'">
+  <div [class] = "{
+      status: true,
+      'status-online': currentStatus === 'online',
+      'stauts-offline': currentStatus === 'offline',
+      'stauts-unkonwn': currentStatus === 'unkonwn'
+    }">
     @if (currentStatus === 'online') {
       <p>Servers are online</p>
       <p>All systems are operational.</p>
