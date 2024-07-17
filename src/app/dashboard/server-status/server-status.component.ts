@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ButtonComponent } from '../../shared/button/button.component';
 
 @Component({
@@ -11,11 +11,13 @@ import { ButtonComponent } from '../../shared/button/button.component';
     id: 'status'
   }
 })
-export class ServerStatusComponent {
+export class ServerStatusComponent implements OnInit{
   // Limit possible string values to assign to props
   currentStatus : 'online' | 'offline' | 'unknown' = 'online';
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit(): void {
     setInterval(()=> {
       let random = Math.random(); // 0- 0.999
       if (random < 0.5) this.currentStatus = "offline"
