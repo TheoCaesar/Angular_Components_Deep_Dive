@@ -6,7 +6,10 @@ import { ButtonComponent } from '../../shared/button/button.component';
   standalone: true,
   imports: [],
   templateUrl: './server-status.component.html',
-  styleUrl: './server-status.component.css'
+  styleUrl: './server-status.component.css',
+  host : {
+    id: 'status'
+  }
 })
 export class ServerStatusComponent {
   currentStatus = 'online';
