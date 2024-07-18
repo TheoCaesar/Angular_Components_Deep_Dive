@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, input, ViewEncapsulation } from '@angular/core';
+import { AfterContentChecked, Component, ContentChild, ElementRef, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -9,14 +9,17 @@ import { Component, ElementRef, inject, input, ViewEncapsulation } from '@angula
   encapsulation:ViewEncapsulation.None,
   host: {
     class: 'control',
-    '(click)': 'doSomething()'
+    // '(click)': 'doSomething()'
   }
 })
-export class ControlComponent {
+export class ControlComponent implements AfterContentChecked{
   label = input.required<string>();
+  //we will use one decorator cos each instance gets either an input or 
+  @ContentChild('cntrlInput') userInput ?: ElementRef <HTMLInputElement | HTMLTextAreaElement>
   private hostElement = inject(ElementRef); //get metadata on this.component
-  doSomething() {
-    console.log('clicked...',this.hostElement);
+  
+  ngAfterContentChecked () {
+    console.log(`from control Component...\nInput -> ${this.userInput?.nativeElement.value}`);
   }
 
 }

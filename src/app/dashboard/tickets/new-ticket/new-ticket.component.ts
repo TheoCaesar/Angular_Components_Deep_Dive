@@ -16,6 +16,6 @@ export class NewTicketComponent {
   onSubmit(titleElement: string, requestElement:HTMLTextAreaElement) {
     let title  = titleElement;
     let request = requestElement.value;
-    this.varForm()?.nativeElement.reset() 
+    // this.varForm()?.nativeElement.reset() 
   }
 }
