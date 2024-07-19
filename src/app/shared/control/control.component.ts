@@ -1,4 +1,4 @@
-import { AfterContentChecked, Component, contentChild, ContentChild, ElementRef, inject, input, ViewEncapsulation } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, contentChild, ContentChild, ElementRef, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -12,12 +12,19 @@ import { AfterContentChecked, Component, contentChild, ContentChild, ElementRef,
     '(click)': 'doSomething()'
   }
 })
-export class ControlComponent {
+export class ControlComponent implements AfterContentInit{
   label = input.required<string>();
   // @ContentChild('cntrlInput') userInput ?: ElementRef <HTMLInputElement | HTMLTextAreaElement>
   userInput = contentChild.required<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('cntrlInput')
   private hostElement = inject(ElementRef); //get metadata on this.component
+
+  ngOnInit(): void {
+    console.log('onInit',this.userInput()?.nativeElement)
+  }
   
+  ngAfterContentInit(): void {
+      console.log('onInit',this.userInput()?.nativeElement)
+  }
   doSomething () {
     console.log(`from control Component...\nInput -> ${this.userInput().nativeElement.value}`);
   }

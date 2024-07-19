@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild } from '@angular/core';
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { ControlComponent } from "../../../shared/control/control.component";
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,14 @@ export class NewTicketComponent {
   onSubmit(titleElement: string, requestElement:HTMLTextAreaElement) {
     let title  = titleElement;
     let request = requestElement.value;
-    // this.varForm()?.nativeElement.reset() 
+    this.varForm()?.nativeElement.reset() 
+  }
+
+  ngOnInit(): void {
+    // console.log('onInit',this.varForm()?.nativeElement)
+  }
+
+  ngAfterViewInit(): void {
+    // console.log('after view init',this.varForm()?.nativeElement)
   }
 }
