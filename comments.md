@@ -1,0 +1,2 @@
+Finally got a bit more understanding for AfterNextRender, it turns out while it listens application wide for changes, its change detection is only limited to its caller constructor or parent component. 
+adding lifecycle component, which is initialized and destroyed upon clicking a button barely triggered the afterNextRender function hook.
