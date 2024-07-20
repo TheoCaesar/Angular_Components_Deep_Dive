@@ -18,14 +18,6 @@ export class ControlComponent implements AfterContentInit{
   private hostElement = inject(ElementRef);
 
   constructor() {
-
-    afterNextRender(()=>{
-      console.log('afterNextRender...', this.userInput().nativeElement.value)
-    });
-    
-    afterRender(()=>{
-      console.log('afterRender', this.userInput().nativeElement.value);      
-    })
   }
 
   ngOnInit(): void {
