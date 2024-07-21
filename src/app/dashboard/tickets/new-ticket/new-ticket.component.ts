@@ -14,10 +14,14 @@ import { Ticket } from '../tickets.model';
 export class NewTicketComponent {
   varForm = viewChild<ElementRef<HTMLFormElement>>('form')
   add = output<{title:string, request: string}>();
-  onSubmit(titleElement: string, requestElement:HTMLTextAreaElement) {
-    let title  = titleElement;
-    let request = requestElement.value;
+  titleContent = "";
+  requestContent = "";
+  
+  onSubmit() {
+    let title = this.titleContent;
+    let request = this.requestContent;
     this.add.emit({title, request})
-    this.varForm()?.nativeElement.reset() 
+    this.titleContent = "";
+    this.requestContent = "";
   }
 }
