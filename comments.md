@@ -27,3 +27,7 @@ we also had our new ticket prop emit an output property carrying the details of 
 
 ### $first, $even, $odd & $count keywords for the for loop
 these key words return boolean values and useful if we wnat to conditionaly perform some actions like styling or more. the count attribute returns the count value of all the items in the loop and not their indexes. Only offered in v17+
+
+
+# update - modifying signals
+this is a way of updating signal values, we will need to find out the difference btn that and set method later. The update method takes a function as an argument, through which we could pass a variable indicating the caller signal and then our function body executing any logic we need done to that caller signal.
