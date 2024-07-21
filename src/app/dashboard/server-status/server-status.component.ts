@@ -16,7 +16,7 @@ export class ServerStatusComponent implements OnInit{
   private interval ?: ReturnType<typeof setInterval>;    // NodeJS.Timeout | undefined
 
   constructor() {
-    effect(()=> console.log('current status ', this.currentStatus()))
+    // effect(()=> console.log('current status ', this.currentStatus()))
   }
 
   ngOnInit(): void {

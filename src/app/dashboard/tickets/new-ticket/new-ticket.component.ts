@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, output, viewChild, ViewChild } from '@angular/core';
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { ControlComponent } from "../../../shared/control/control.component";
 import { FormsModule } from '@angular/forms';
+import { Ticket } from '../tickets.model';
 
 @Component({
   selector: 'app-new-ticket',
@@ -11,19 +12,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './new-ticket.component.css'
 })
 export class NewTicketComponent {
-  // @ViewChild('form') varForm ?: ElementRef<HTMLFormElement>
   varForm = viewChild<ElementRef<HTMLFormElement>>('form')
+  add = output<{title:string, request: string}>();
   onSubmit(titleElement: string, requestElement:HTMLTextAreaElement) {
     let title  = titleElement;
     let request = requestElement.value;
+    this.add.emit({title, request})
     this.varForm()?.nativeElement.reset() 
-  }
-
-  ngOnInit(): void {
-    // console.log('onInit',this.varForm()?.nativeElement)
-  }
-
-  ngAfterViewInit(): void {
-    // console.log('after view init',this.varForm()?.nativeElement)
   }
 }

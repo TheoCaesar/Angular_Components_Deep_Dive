@@ -15,3 +15,15 @@ effect((onCleanup)=>{
         onCleanup(()=>clearTimeout(timer)) //this is how onClean up method works.
     });
 });
+
+
+# @empty - a fallback for looping through props in template
+
+now we looked at modeling what props are ticket property will look like in a ticket.model.ts file and then created an array of tickets property in our component to store those new tickets of ours. 
+
+we used the @empty decorator to wrap a paragraph displaying a simple message when we have no tickets added just yet. 
+
+we also had our new ticket prop emit an output property carrying the details of our form in the onSubmit method, which is then received by our parent tickets component, modifies it and adds it to our list of tickets.
+
+### $first, $even, $odd & $count keywords for the for loop
+these key words return boolean values and useful if we wnat to conditionaly perform some actions like styling or more. the count attribute returns the count value of all the items in the loop and not their indexes.
